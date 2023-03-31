@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a1, a2, a3, a4, a5;
+    float average;
+
+    cout << "Vvedit pyat tsilykh chysel: ";
+    cin >> a1 >> a2 >> a3 >> a4 >> a5;
+
+    int sum = a1 + a2 + a3 + a4 + a5;
+    average = (float) sum / 5;
+
+    cout << "Serednye aryfmetychne pyaty chysel: " << average << endl;
+
+    return 0;
+}

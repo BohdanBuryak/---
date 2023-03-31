@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+double convertCurrency(double amount, string direction) {
+    const double EUR_UAH_RATE = 34.9; 
+    if (direction == "UAH_to_EUR") {
+        return amount / EUR_UAH_RATE;
+    }
+    else if (direction == "EUR_to_UAH") {
+        return amount * EUR_UAH_RATE;
+    }
+    else {
+        cout << "Nekorektnyy napryamok konvertatsiyi." << endl;
+        return 0.0;
+    }
+}
+
+int main() {
+    double amount;
+    string direction;
+
+    cout << "Vvedit sumu dlya konvertatsiyi: ";
+    cin >> amount;
+    cout << "Vveditʹ napryamok konvertatsiyi (UAH_to_EUR или EUR_to_UAH): ";
+    cin >> direction;
+
+    double result = convertCurrency(amount, direction);
+    if (result != 0.0) {
+        cout << "Rezultat konvertatsiyi: " << result << endl;
+    }
+
+    return 0;
+}

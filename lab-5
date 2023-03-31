@@ -1,0 +1,22 @@
+#include <iostream>
+#include <bitset>
+
+using namespace std;
+
+int main() {
+    int decimal;
+
+    cout << "Vvedit desyatkove chyslo vid 0 do 2048: ";
+    cin >> decimal;
+
+    if (decimal < 0 || decimal > 2048) {
+        cout << "Pomylka: chyslo maye buty vid 0 do 2048." << endl;
+        return 1;
+    }
+
+    string binary = bitset<11>(decimal).to_string();
+
+    cout << decimal << " u dviykoviy ye: " << binary << endl;
+
+    return 0;
+}

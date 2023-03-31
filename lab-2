@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    float a, h, S;
+
+    cout << "Vvedit dovzhynu storony trykutnyka: ";
+    cin >> a;
+
+    cout << "Vvedit dovzhynu vysoty, opushchenoyi na storonu trykutnyka: ";
+    cin >> h;
+
+    S = 0.5 * a * h;
+
+    cout << "Ploshcha trykutnyka dorivnyuye: " << S << endl;
+
+    return 0;
+}

@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int minutes, seconds;
+
+    cout << "Vvedit chas u khvylynakh: ";
+    cin >> minutes;
+
+    seconds = minutes * 60;
+    cout << minutes << " khvylyn = " << seconds << " sekund " << endl;
+
+    cout << "vedit chas u sekundakh: ";
+    cin >> seconds;
+
+    minutes = seconds / 60;
+    cout << seconds << " sekund = " << minutes << " khvylyn" << endl;
+
+    return 0;
+}

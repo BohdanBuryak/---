@@ -1,57 +1,52 @@
-#include <stdio.h>
-#include <string.h>
+#include <iostream>
+#include <string>
+#include <vector>
 
-
-struct Country {
-    char name[50];
-    char capital[50];
-    int population;
-    float area;
-    int numCities;
+struct Student {
+    std::string lastName;
+    std::string firstName;
+    int birthYear;
+    std::string group;
+    int rating;
+    std::string gender;
 };
 
 int main() {
-    struct Country countries[100];
-    int n;
-    printf("Введіть кількість країн: ");
-    scanf("%d", &n);
+    std::vector<Student> students;
 
+    // Введення даних про студентів
+    int numStudents;
+    std::cout << "Enter the number of students: ";
+    std::cin >> numStudents;
 
-    for (int i = 0; i < n; i++) {
-        printf("\nВведіть дані про країну #%d:\n", i+1);
-        printf("Назва: ");
-        scanf("%s", countries[i].name);
-        printf("Столиця: ");
-        scanf("%s", countries[i].capital);
-        printf("Кількість населення: ");
-        scanf("%d", &countries[i].population);
-        printf("Площа: ");
-        scanf("%f", &countries[i].area);
-        printf("Кількість міст: ");
-        scanf("%d", &countries[i].numCities);
+    for (int i = 0; i < numStudents; i++) {
+        std::cout << "Student #" << (i + 1) << std::endl;
+
+        Student student;
+        std::cout << "Prizvushche: ";
+        std::cin >> student.lastName;
+        std::cout << "Name: ";
+        std::cin >> student.firstName;
+        std::cout << "Year of birth: ";
+        std::cin >> student.birthYear;
+        std::cout << "Group: ";
+        std::cin >> student.group;
+        std::cout << "Rating: ";
+        std::cin >> student.rating;
+        std::cout << "Sex: ";
+        std::cin >> student.gender;
+
+        students.push_back(student);
     }
 
-
-    for (int i = 0; i < n-1; i++) {
-        for (int j = i+1; j < n; j++) {
-            if (countries[i].population > countries[j].population) {
-
-                struct Country temp = countries[i];
-                countries[i] = countries[j];
-                countries[j] = temp;
-            }
+    // Виведення прізвищ та ініціалів студентів з рейтингом менше 50 балів
+    std::cout << "Students with a rating of less than 50 points:" << std::endl;
+    for (const auto& student : students) {
+        if (student.rating < 50) {
+            std::cout << "Prizvushche: " << student.lastName << std::endl;
+            std::cout << "Initials: " << student.lastName[0] << ". " << student.firstName[0] << "." << std::endl;
+            std::cout << "---------------------------------------" << std::endl;
         }
-    }
-
-
-    printf("\nДані про країни у порядку зростання кількості населення:\n");
-    for (int i = 0; i < n; i++) {
-        printf("\nКраїна #%d:\n", i+1);
-        printf("Назва: %s\n", countries[i].name);
-        printf("Столиця: %s\n", countries[i].capital);
-        printf("Кількість населення: %d\n", countries[i].population);
-        printf("Площа: %.2f\n", countries[i].area);
-        printf("Кількість міст: %d\n", countries[i].numCities);
     }
 
     return 0;
